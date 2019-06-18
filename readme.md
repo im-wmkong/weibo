@@ -22,9 +22,9 @@ weibo 是 Laravel 中文新手课程《L01 Laravel 教程 - Web 开发实战入�
 
 ## 开发环境部署/安装
 
-本项目代码使用 PHP 框架 [Laravel 5.8](https://learnku.com/docs/laravel/5.8/) 开发，本地开发环境使用 [Laravel Homestead](https://learnku.com/docs/laravel/5.5/homestead)。
+本项目代码使用 PHP 框架 [Laravel 5.8](https://learnku.com/docs/laravel/5.8/) 开发，本地开发环境使用 [Laravel Homestead](https://learnku.com/docs/laravel/5.8/homestead)。
 
-下文将在假定读者已经安装好了 Homestead 的情况下进行说明。如果您还未安装 Homestead，可以参照 [Homestead 安装与设置](https://learnku.com/docs/laravel/5.5/homestead#installation-and-setup) 进行安装配置。
+下文将在假定读者已经安装好了 Homestead 的情况下进行说明。如果您还未安装 Homestead，可以参照 [Homestead 安装与设置](https://learnku.com/docs/laravel-development-environment/5.8) 进行安装配置。
 
 ### 基础安装
 
