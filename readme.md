@@ -1,71 +1,145 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## 项目概述
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+* 产品名称：weibo
+* 项目代号：weibo
+* 官方地址：未上线
 
-## About Laravel
+weibo 是 Laravel 中文新手课程《L01 Laravel 教程 - Web 开发实战入门》的个人实现源代码，使用 Laravel5.8 编写而成。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 功能如下
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- 用户认证 —— 注册、登录、退出；
+- 个人中心 —— 用户个人中心，编辑资料；
+- 邮件发送 —— 注册邮件
+- 微博管理 —— 个人发布微博管理，关注者微博
+- 粉丝关系 —— 用户关注于被关注，查看数量
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 运行环境要求
 
-## Learning Laravel
+- Nginx 1.8+
+- PHP 7.1+
+- Mysql 5.7+
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 开发环境部署/安装
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost you and your team's skills by digging into our comprehensive video library.
+本项目代码使用 PHP 框架 [Laravel 5.8](https://learnku.com/docs/laravel/5.8/) 开发，本地开发环境使用 [Laravel Homestead](https://learnku.com/docs/laravel/5.5/homestead)。
 
-## Laravel Sponsors
+下文将在假定读者已经安装好了 Homestead 的情况下进行说明。如果您还未安装 Homestead，可以参照 [Homestead 安装与设置](https://learnku.com/docs/laravel/5.5/homestead#installation-and-setup) 进行安装配置。
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 基础安装
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
+#### 1. 克隆源代码
 
-## Contributing
+克隆 `larabbs` 源代码到本地：
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    > git clone https://github.com/KongWeiMin/weibo.git
 
-## Security Vulnerabilities
+#### 2. 配置本地的 Homestead 环境
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1). 运行以下命令编辑 Homestead.yaml 文件：
 
-## License
+```shell
+homestead edit
+```
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2). 加入对应修改，如下所示：
+
+```
+folders:
+    - map: ~/my-path/weibo/ # 你本地的项目目录地址
+      to: /home/vagrant/weibo
+
+sites:
+    - map: weibo.test
+      to: /home/vagrant/weibo/public
+
+databases:
+    - weibo
+```
+
+3). 应用修改
+
+修改完成后保存，然后执行以下命令应用配置信息修改：
+
+```shell
+homestead provision
+```
+
+随后请运行 `homestead reload` 进行重启。
+
+#### 3. 安装扩展包依赖
+
+	composer install
+
+#### 4. 生成配置文件
+
+```
+cp .env.example .env
+```
+
+你可以根据情况修改 `.env` 文件里的内容，如数据库连接、缓存、邮件设置等：
+
+```
+APP_URL=http://weibo.test
+...
+DB_HOST=localhost
+DB_DATABASE=weibo
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
+#### 5. 生成数据表及生成测试数据
+
+在 Homestead 的网站根目录下运行以下命令
+
+```shell
+$ php artisan migrate --seed
+```
+
+初始的用户角色权限已使用数据迁移生成。
+
+#### 7. 生成秘钥
+
+```shell
+php artisan key:generate
+```
+
+#### 8. 配置 hosts 文件
+
+    echo "192.168.10.10   larabbs.test" | sudo tee -a /etc/hosts
+
+### 前端框架安装
+
+1). 安装 node.js
+
+直接去官网 [https://nodejs.org/en/](https://nodejs.org/en/) 下载安装最新版本。
+
+2). 安装 Yarn
+
+请安装最新版本的 Yarn —— http://yarnpkg.cn/zh-Hans/docs/install
+
+3). 安装 Laravel Mix
+
+```shell
+yarn install
+```
+
+4). 监控修改并自动编译
+
+```shell
+npm run watch-poll
+```
+
+### 链接入口
+
+* 首页地址：http://weibo.test/
+* 管理后台：没做
+
+至此, 安装完成 ^_^。
+
+
+## 扩展包使用情况
+
+| 扩展包                                                       | 一句话描述     | 本项目应用场景 |
+| ------------------------------------------------------------ | -------------- | -------------- |
+| [overtrue/laravel-lang](https://github.com/overtrue/laravel-lang) | Laravel 多语言 | 报错信息本地化 |
