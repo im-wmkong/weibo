@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class StaticPagesController extends Controller
 {
+    public function info()
+    {
+        phpinfo();
+    }
+
     public function home()
     {
         $feed_items = [];
